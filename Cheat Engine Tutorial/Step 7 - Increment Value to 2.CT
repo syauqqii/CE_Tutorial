@@ -1,0 +1,25 @@
+[ENABLE]
+alloc(newmem,2048,"Tutorial-x86_64.exe"+2DB57) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+
+originalcode:
+add dword ptr [rsi+000007E0],02
+
+exit:
+jmp returnhere
+
+"Tutorial-x86_64.exe"+2DB57:
+jmp newmem
+nop 2
+returnhere:
+
+
+[DISABLE]
+dealloc(newmem)
+"Tutorial-x86_64.exe"+2DB57:
+db 83 AE E0 07 00 00 01
+//sub dword ptr [rsi+000007E0],01
