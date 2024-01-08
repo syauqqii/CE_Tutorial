@@ -1,0 +1,30 @@
+{ Game   : Cheat Engine Tutorial v3.4
+  Version: 
+  Date   : 2024-01-08
+  Author : @syauqqii
+}
+
+[ENABLE]
+
+aobscanmodule(SetHealth,Tutorial-x86_64.exe,29 9E F8 07 00 00)
+alloc(newmem,$1000,SetHealth)
+
+label(return)
+
+newmem:
+  mov [rsi+000007F8],(int)5000
+  jmp return
+
+SetHealth:
+  jmp newmem
+  nop
+return:
+registersymbol(SetHealth)
+
+[DISABLE]
+
+SetHealth:
+  db 29 9E F8 07 00 00
+
+unregistersymbol(SetHealth)
+dealloc(newmem)
