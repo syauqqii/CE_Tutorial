@@ -1,0 +1,27 @@
+[ENABLE]
+alloc(newmem,2048,"Tutorial-x86_64.exe"+2F25D) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+cmp [rcx+14],1
+je exit // --> untuk team sendiri supaya god mode
+// jmp exit // --> untuk team musuh supaya god mode
+
+originalcode:
+movss [rbx+08],xmm0
+
+exit:
+jmp returnhere
+
+"Tutorial-x86_64.exe"+2F25D:
+jmp newmem
+returnhere:
+
+ 
+ 
+[DISABLE]
+dealloc(newmem)
+"Tutorial-x86_64.exe"+2F25D:
+db F3 0F 11 43 08
