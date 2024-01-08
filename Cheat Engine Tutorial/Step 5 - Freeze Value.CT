@@ -1,0 +1,21 @@
+[ENABLE]
+
+alloc(newmem,2048,"Tutorial-x86_64.exe"+2CB88) 
+label(returnhere)
+label(exit)
+
+newmem:
+
+exit:
+jmp returnhere
+
+"Tutorial-x86_64.exe"+2CB88:
+db 90 90
+returnhere:
+
+ 
+[DISABLE]
+
+dealloc(newmem)
+"Tutorial-x86_64.exe"+2CB88:
+db 89 10 48 8B 45 F0
