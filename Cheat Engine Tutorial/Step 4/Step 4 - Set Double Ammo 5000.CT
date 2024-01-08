@@ -1,0 +1,34 @@
+{ Game   : Tutorial-x86_64
+  Version: 
+  Date   : 2024-01-08
+  Author : @syauqqii
+}
+
+[ENABLE]
+
+aobscanmodule(SetAmmo,Tutorial-x86_64.exe,F2 0F 11 83 20 08 00 00)
+alloc(newmem,$1000,SetAmmo)
+alloc(doubleAmmo,4)
+
+label(return)
+
+doubleAmmo:
+  dq (double)5000
+
+newmem:
+  fld qword ptr [doubleAmmo]
+  fstp qword ptr [rbx+00000820]
+  jmp return
+
+SetAmmo:
+  jmp newmem
+  nop 3
+return:
+registersymbol(SetAmmo)
+
+[DISABLE]
+SetAmmo:
+  db F2 0F 11 83 20 08 00 00
+
+unregistersymbol(SetAmmo)
+dealloc(newmem)
