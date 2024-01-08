@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>17</ID>
+      <Description>"Matahari 1000"</Description>
+      <Options moHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"Set Matahari 1000"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Plants vs. Zombies
+  Version: 
+  Date   : 2024-01-08
+  Author : @syauqqii
+}
+
+[ENABLE]
+
+aobscanmodule(Matahari,popcapgame1.exe,89 B7 60 55 00 00)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [edi+00005560],(int)2000
+  jmp return
+
+Matahari:
+  jmp newmem
+  nop
+return:
+registersymbol(Matahari)
+
+[DISABLE]
+
+Matahari:
+  db 89 B7 60 55 00 00
+
+unregistersymbol(Matahari)
+dealloc(newmem)
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16</ID>
+          <Description>"Set Matahari 1000"</Description>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Plants vs. Zombies
+  Version: 
+  Date   : 2024-01-08
+  Author : @syauqqii
+}
+
+[ENABLE]
+
+aobscanmodule(Matahari,popcapgame1.exe,04 01 88 60 55 00 00)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+mov [eax+00005560],(int)2000
+jmp return
+
+code:
+  add [eax+00005560],ecx
+  jmp return
+
+Matahari+01:
+  jmp newmem
+  nop
+return:
+registersymbol(Matahari)
+
+[DISABLE]
+
+Matahari+01:
+  db 01 88 60 55 00 00
+
+unregistersymbol(Matahari)
+dealloc(newmem)
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>8</ID>
+      <Description>"No Delay"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Plants vs. Zombies
+  Version: 
+  Date   : 2024-01-08
+  Author : @syauqqii
+}
+
+[ENABLE]
+
+aobscanmodule(TumbuhanTembak,popcapgame1.exe,83 47 24 01 8B 47 24)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  // add dword ptr [edi+24],01
+  // mov eax,[edi+24]
+  mov [edi+24],00000000
+  jmp return
+
+TumbuhanTembak:
+  jmp newmem
+  nop 2
+return:
+registersymbol(TumbuhanTembak)
+
+[DISABLE]
+
+TumbuhanTembak:
+  db 83 47 24 01 8B 47 24
+
+unregistersymbol(TumbuhanTembak)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>24</ID>
+      <Description>"Money Set to 500k"</Description>
+      <Options moHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>22</ID>
+          <Description>"Money +500k"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Plants vs. Zombies
+  Version: 
+  Date   : 2024-01-08
+  Author : @syauqqii
+}
+
+[ENABLE]
+
+aobscanmodule(Money,popcapgame1.exe,00 01 50 28 8B 48 28 81)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  // add [eax+28],edx
+  // mov ecx,[eax+28]
+  mov [eax+28],(int)50000
+  mov ecx,[eax+28]
+  jmp return
+
+Money+01:
+  jmp newmem
+  nop
+return:
+registersymbol(Money)
+
+[DISABLE]
+
+Money+01:
+  db 01 50 28 8B 48 28
+
+unregistersymbol(Money)
+dealloc(newmem)
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>23</ID>
+          <Description>"Money No Decrement"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Plants vs. Zombies
+  Version: 
+  Date   : 2024-01-08
+  Author : user
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(INJECT,popcapgame1.exe,29 41 28 8B 41 28) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [ecx+28],(int)5000
+  mov eax,[ecx+28]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECT:
+  db 29 41 28 8B 41 28
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: popcapgame1.exe+8CAA5
+
+popcapgame1.exe+8CA76: FF D0                 - call eax
+popcapgame1.exe+8CA78: BA E8 03 00 00        - mov edx,000003E8
+popcapgame1.exe+8CA7D: 3B C2                 - cmp eax,edx
+popcapgame1.exe+8CA7F: 88 9F B1 01 00 00     - mov [edi+000001B1],bl
+popcapgame1.exe+8CA85: 0F 85 9E 04 00 00     - jne popcapgame1.exe+8CF29
+popcapgame1.exe+8CA8B: 8B AC 24 AC 00 00 00  - mov ebp,[esp+000000AC]
+popcapgame1.exe+8CA92: 8B CD                 - mov ecx,ebp
+popcapgame1.exe+8CA94: E8 87 FB FF FF        - call popcapgame1.exe+8C620
+popcapgame1.exe+8CA99: 8B 8F 50 01 00 00     - mov ecx,[edi+00000150]
+popcapgame1.exe+8CA9F: 8B 89 2C 08 00 00     - mov ecx,[ecx+0000082C]
+// ---------- INJECTING HERE ----------
+popcapgame1.exe+8CAA5: 29 41 28              - sub [ecx+28],eax
+// ---------- DONE INJECTING  ----------
+popcapgame1.exe+8CAA8: 8B 41 28              - mov eax,[ecx+28]
+popcapgame1.exe+8CAAB: 3D 9F 86 01 00        - cmp eax,0001869F
+popcapgame1.exe+8CAB0: 7E 09                 - jle popcapgame1.exe+8CABB
+popcapgame1.exe+8CAB2: C7 41 28 9F 86 01 00  - mov [ecx+28],0001869F
+popcapgame1.exe+8CAB9: EB 07                 - jmp popcapgame1.exe+8CAC2
+popcapgame1.exe+8CABB: 3B C3                 - cmp eax,ebx
+popcapgame1.exe+8CABD: 7D 03                 - jnl popcapgame1.exe+8CAC2
+popcapgame1.exe+8CABF: 89 59 28              - mov [ecx+28],ebx
+popcapgame1.exe+8CAC2: 83 FD 15              - cmp ebp,15
+popcapgame1.exe+8CAC5: 0F 85 40 01 00 00     - jne popcapgame1.exe+8CC0B
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of add dword ptr [edi+24],01</Description>
+      <AddressString>popcapgame1.exe+8728C</AddressString>
+      <Before>
+        <Byte>7F</Byte>
+        <Byte>49</Byte>
+        <Byte>00</Byte>
+        <Byte>74</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>47</Byte>
+        <Byte>24</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>47</Byte>
+        <Byte>24</Byte>
+        <Byte>3B</Byte>
+        <Byte>47</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [edi+00005560],esi</Description>
+      <AddressString>popcapgame1.exe+1BA76</AddressString>
+      <Before>
+        <Byte>D8</Byte>
+        <Byte>7F</Byte>
+        <Byte>0C</Byte>
+        <Byte>2B</Byte>
+        <Byte>F3</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>B7</Byte>
+        <Byte>60</Byte>
+        <Byte>55</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+        <Byte>5E</Byte>
+        <Byte>C3</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>
