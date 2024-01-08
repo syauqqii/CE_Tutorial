@@ -1,0 +1,35 @@
+{ Game   : Tutorial-x86_64
+  Version: 
+  Date   : 2024-01-08
+  Author : @syauqqii
+}
+
+[ENABLE]
+
+aobscanmodule(SetHealth,Tutorial-x86_64.exe,F3 0F 11 8E 18 08 00 00)
+alloc(newmem,$1000,SetHealth)
+alloc(floatHealt,4)
+
+label(return)
+
+floatHealt:
+  dd (float)5000
+
+newmem:
+  fld dword ptr [floatHealt]
+  fstp dword ptr [rsi+00000818]
+  jmp return
+
+SetHealth:
+  jmp newmem
+  nop 3
+return:
+registersymbol(SetHealth)
+
+[DISABLE]
+
+SetHealth:
+  db F3 0F 11 8E 18 08 00 00
+
+unregistersymbol(SetHealth)
+dealloc(newmem)
