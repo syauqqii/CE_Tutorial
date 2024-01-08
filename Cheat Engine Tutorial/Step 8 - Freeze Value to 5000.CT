@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable>
+  <CheatEntries>
+    <CheatEntry>
+      <ID>18</ID>
+      <Description>"[STEP 8] Freeze Value 5000"</Description>
+      <LastState Value="5000" RealAddress="0018D228"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"Tutorial-x86_64.exe"+325B00</Address>
+      <Offsets>
+        <Offset>18</Offset>
+        <Offset>0</Offset>
+        <Offset>18</Offset>
+        <Offset>10</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+</CheatTable>
